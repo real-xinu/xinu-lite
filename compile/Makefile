@@ -31,16 +31,7 @@ LDSCRIPT	=	ld.script
 MKVERS		=	$(TOPDIR)/compile/bin/mkvers
 REBUILDFLAGS	=	-s $(TOPDIR)/system  debug.c		\
 			-s $(TOPDIR)/lib			\
-			-s $(TOPDIR)/device/tty			\
-			-s $(TOPDIR)/device/nam			\
-			-s $(TOPDIR)/device/eth			\
-			-s $(TOPDIR)/device/rds			\
-			-s $(TOPDIR)/device/ram			\
-			-s $(TOPDIR)/device/lfs			\
-			-s $(TOPDIR)/device/rfs			\
-			-s $(TOPDIR)/net  'arp_dump*'  		\
-				'dhcp_dump*'  pxe.c		\
-			-s $(TOPDIR)/shell  'xsh_rdstest*'
+			-s $(TOPDIR)/device/tty			
 
 INCLUDE		=	-I$(TOPDIR)/include
 DEFS		= 	-DBSDURG -DVERSION=\""`cat $(VERSIONFILE)`"\"

@@ -50,8 +50,6 @@ int console_init(void)
 void	platinit()
 {
 
-	int32	pcidev;
-
 	/* Initialize the PCI bus */
 	pci_init();
 
@@ -65,16 +63,4 @@ void	platinit()
 
 	/* Intel Quark Irq Routing */
 	quark_irq_routing();
-
-	/* Find the Ethernet device */
-	pcidev = find_pci_device(INTEL_ETH_QUARK_PCI_DID,
-					INTEL_ETH_QUARK_PCI_VID, 0);
-	if(pcidev != SYSERR) {
-
-		/* Store the pcidev for future use */
-		ethertab[0].pcidev = pcidev;
-
-		pci_get_dev_mmio_base_addr(pcidev, 0,
-					  &devtab[ETHER0].dvcsr);
-	}
 }
